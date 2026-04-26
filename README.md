@@ -14,7 +14,9 @@ The lab focuses on **user account management, domain administration, and trouble
 - Active Directory Domain Services (AD DS)  
 - DNS configured on the domain controller  
 - Windows 10 client joined to the domain  
-- Multiple domain users for testing authentication and access control  
+- Multiple domain users for testing authentication and access control
+- Account lockout policy for security and login protection
+- Group Policy Objects (GPOs) for enforcing user restrictions  
 
 ---
 
@@ -65,6 +67,29 @@ The lab focuses on **user account management, domain administration, and trouble
 
 ---
 
+### 5. Account Lockout Due to Failed Login Attempts
+
+- **Issue:** User account locked after multiple failed login attempts
+- **Cause:** Account lockout policy triggered after 3 incorrect passwords  
+- **Resolution:** Unlocked account in Active Directory Users and Computers  
+- **Result:** User regained access after unlock
+
+**Screenshot:**  
+![Account Disabled](screenshots/account-disabled.png)
+
+---
+
+### 6. Group Policy Restriction Applied
+
+- **Issue:** Needed to restrict user access to system settings  
+- **Resolution:** Created and applied a Group Policy Object (GPO) to disable Control Panel access  
+- **Result:** User was prevented from accessing restricted system settings  
+
+**Screenshot:**  
+![Account Disabled](screenshots/gpo-restriction.png)
+
+---
+
 ## IT Tasks Performed
 
 - Created and managed Active Directory user accounts  
@@ -73,6 +98,8 @@ The lab focuses on **user account management, domain administration, and trouble
 - Joined client machines to the domain  
 - Configured and troubleshot DNS issues affecting domain communication  
 - Verified authentication and login behavior for domain users  
+- Implemented account lockout policies to enhance security  
+- Applied Group Policy Objects (GPOs) to enforce user restrictions  
 
 ---
 
@@ -92,9 +119,9 @@ The lab focuses on **user account management, domain administration, and trouble
 
 ## Next Steps
 
-- Implement Group Policy Objects (GPOs)  
 - Create security groups and assign permissions  
 - Set up shared folders and access control  
-- Expand lab with additional client machines  
-
+- Expand lab with additional client machines
+- Integrate a ticketing system to simulate help desk workflows  
+  
 ---
