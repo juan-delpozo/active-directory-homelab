@@ -75,7 +75,7 @@ The lab focuses on **user account management, domain administration, and trouble
 - **Result:** User regained access after unlock
 
 **Screenshot:**  
-![Account Disabled](screenshots/account-lockout.png)
+![Account Lockout](screenshots/account-lockout.png)
 
 ---
 
