@@ -2,109 +2,99 @@
 
 ## Overview
 
-This project is a home lab where I set up a basic Active Directory environment using VirtualBox, Windows Server 2022, and a Windows 10 client.
+This project simulates a real-world IT support environment by deploying and managing an Active Directory infrastructure using VirtualBox, Windows Server 2022, and a Windows 10 client.
 
-The goal was to understand how domain environments work and practice common IT support tasks like user management, authentication, and troubleshooting.
-
----
-
-## What I built
-
-- A Windows Server 2022 domain controller
-- Active Directory Domain Services
-- DNS configured on the server
-- Multiple domain users
-- A Windows 10 workstation joined to the domain
+The lab focuses on **user account management, domain administration, and troubleshooting common IT support issues** such as DNS misconfigurations, login failures, and access control.
 
 ---
 
-## Lab setup
+## What I Built
 
-- Domain: MyCompany.local  
-- Domain Controller: DC01  
-- Server IP: 192.168.1.10  
-
-Users created:
-- jsmith
-- mgarcia
-- dlee
-- sjohnson
+- Windows Server 2022 Domain Controller (DC01)  
+- Active Directory Domain Services (AD DS)  
+- DNS configured on the domain controller  
+- Windows 10 client joined to the domain  
+- Multiple domain users for testing authentication and access control  
 
 ---
 
-## What I learned
+## IT Support Scenarios
 
-- How Active Directory stores and manages users
-- Why DNS is required for domain communication
-- How to join a client machine to a domain
-- How authentication works between a workstation and a domain controller
+### 1. Domain Join Failure (DNS Issue)
 
----
+- **Issue:** Client machine could not locate the domain controller  
+- **Cause:** Client was using router DNS instead of domain controller  
+- **Resolution:** Updated DNS to point to domain controller (192.168.1.10)  
+- **Result:** Successfully joined domain  
 
-## Issue I ran into
-
-When I first tried to join the client machine to the domain, it couldn’t locate the domain controller.
-
-This turned out to be a DNS issue — the client was using my router instead of the server.
-
-After changing the DNS to point to the domain controller (192.168.1.10), the domain join worked.
-
----
-
-## Screenshots
-
-### Server configuration (DC01)
-This shows the domain controller setup, including the domain and IP address.
-
-![Server Config](screenshots/domain-controller-config.png)
-
----
-
-### Active Directory users
-These are the users created and managed in Active Directory.
-
-![AD Users](screenshots/active-directory-users.png)
-
----
-
-### Domain joined machine
-This shows the client machine after successfully joining the domain.
-
+**Screenshot:**  
 ![Domain Joined](screenshots/domain-joined.png)
 
 ---
 
-### Logged in as a domain user
-This shows a successful login using a domain account (MYCOMPANY\jsmith).
+### 2. Password Reset & Forced Change
 
-![Domain User Login](screenshots/domain-user-login.png)
+- **Issue:** User unable to log in due to forgotten password  
+- **Resolution:** Reset password in Active Directory and enabled “change at next login”  
+- **Result:** User successfully logged in and updated password  
 
----
-
-### Password change required
-After resetting a user's password, the system required a password change at next login.
-
+**Screenshot:**  
 ![Password Change Required](screenshots/password-reset.png)
 
 ---
 
-### Account disabled test
-This shows a login attempt after the account was disabled in Active Directory.
+### 3. Account Disabled Login Failure
 
+- **Issue:** Login failed after user account was disabled  
+- **Resolution:** Re-enabled account in Active Directory Users and Computers  
+- **Result:** User regained access  
+
+**Screenshot:**  
 ![Account Disabled](screenshots/account-disabled.png)
 
 ---
 
-## Additional tasks
+### 4. Domain User Login Verification
 
-- Reset user passwords and enforced password changes at next login
-- Disabled and re-enabled user accounts to simulate access control
-- Verified login behavior after account changes
+- **Issue:** Needed to verify domain authentication was working  
+- **Resolution:** Logged into client machine using domain credentials (MYCOMPANY\\jsmith)  
+- **Result:** Successful authentication confirmed domain connectivity  
+
+**Screenshot:**  
+![Domain User Login](screenshots/domain-user-login.png)
 
 ---
 
-## Next steps
+## IT Tasks Performed
 
-- Creating security groups and assigning permissions  
-- Setting up shared folders  
-- Learning Group Policy  
+- Created and managed Active Directory user accounts  
+- Reset passwords and enforced password changes at login  
+- Disabled and re-enabled user accounts to test access control  
+- Joined client machines to the domain  
+- Configured and troubleshot DNS issues affecting domain communication  
+- Verified authentication and login behavior for domain users  
+
+---
+
+## Lab Configuration
+
+- **Domain:** MyCompany.local  
+- **Domain Controller:** DC01  
+- **Server IP:** 192.168.1.10  
+
+**Users Created:**
+- jsmith  
+- mgarcia  
+- dlee  
+- sjohnson  
+
+---
+
+## Next Steps
+
+- Implement Group Policy Objects (GPOs)  
+- Create security groups and assign permissions  
+- Set up shared folders and access control  
+- Expand lab with additional client machines  
+
+---
